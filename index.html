@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valley Rescue ACLS Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="landing-page">
+  <main class="landing-shell">
+    <div class="landing-card">
+      <div class="brand-row">
+        <div class="brand-logo">VRT</div>
+        <div>
+          <h1>Valley Rescue ACLS Simulator</h1>
+          <p class="muted">Two-screen browser version for student monitor and instructor control.</p>
+        </div>
+      </div>
+
+      <div class="grid two">
+        <section class="panel">
+          <h2>Session</h2>
+          <label for="sessionCode">Session code</label>
+          <input id="sessionCode" type="text" value="demo-alpha" autocomplete="off" />
+          <p class="tiny muted">Use the same session code on both devices.</p>
+          <div class="button-row">
+            <button id="openStudent">Open Student View</button>
+            <button id="openInstructor" class="secondary">Open Instructor View</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>What this starter does</h2>
+          <ul class="feature-list">
+            <li>Hosts clean student and instructor pages on GitHub Pages</li>
+            <li>Uses Firebase Realtime Database to sync patient state live</li>
+            <li>Keeps ACLS controls simple: rhythm, vitals, perfusion, CPR, pacing, shock</li>
+            <li>Gives you a clean base to improve waveforms and sounds</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h2>Setup checklist</h2>
+        <ol class="steps">
+          <li>Create a GitHub repo and upload these files.</li>
+          <li>Turn on GitHub Pages for the repo.</li>
+          <li>Create a Firebase project and Realtime Database.</li>
+          <li>Paste your Firebase config into <code>firebase-config.js</code>.</li>
+          <li>Open <code>student.html?session=demo-alpha</code> on one device and <code>instructor.html?session=demo-alpha</code> on another.</li>
+        </ol>
+      </section>
+    </div>
+  </main>
+  <script>
+    const input = document.getElementById('sessionCode');
+    document.getElementById('openStudent').addEventListener('click', () => {
+      const session = encodeURIComponent(input.value.trim() || 'demo-alpha');
+      window.open(`student.html?session=${session}`, '_blank');
+    });
+    document.getElementById('openInstructor').addEventListener('click', () => {
+      const session = encodeURIComponent(input.value.trim() || 'demo-alpha');
+      window.open(`instructor.html?session=${session}`, '_blank');
+    });
+  </script>
+</body>
+</html>

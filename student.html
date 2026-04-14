@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Monitor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="student">
+  <div class="page-shell">
+    <div class="page-card">
+      <div class="toolbar">
+        <div class="brand-row" style="margin:0">
+          <div class="brand-logo">VRT</div>
+          <div>
+            <strong>Student Monitor</strong>
+            <div class="tiny muted">Session: <span id="sessionLabel"></span></div>
+          </div>
+        </div>
+        <div class="status-pill" id="statusValue">MONITORING</div>
+      </div>
+
+      <div id="errorBox" class="panel" style="display:block; margin-bottom:1rem; color:#ffd85a;">If you see a Firebase config error here, paste your config into firebase-config.js.</div>
+
+      <div class="monitor">
+        <div class="monitor-topbar">
+          <div>Valley Rescue ACLS Simulator</div>
+          <div id="rhythmLabel">NSR</div>
+        </div>
+        <div class="monitor-grid">
+          <section class="display">
+            <div class="wave-row">
+              <div class="wave-meta ecg"><span>Lead II</span><span>ECG</span></div>
+              <canvas class="wave" id="ecgWave"></canvas>
+            </div>
+            <div class="wave-row">
+              <div class="wave-meta pleth"><span>SpO₂ Pleth</span><span>PULSE</span></div>
+              <canvas class="wave" id="plethWave"></canvas>
+            </div>
+            <div class="wave-row" style="margin-bottom:0">
+              <div class="wave-meta capno"><span>Capno</span><span>EtCO₂</span></div>
+              <canvas class="wave" id="capnoWave"></canvas>
+            </div>
+          </section>
+          <aside class="number-stack">
+            <div class="metric green"><div class="label">HR</div><div class="value" id="hrValue">78</div></div>
+            <div class="metric blue"><div class="label">SpO₂</div><div class="value" id="spo2Value">98</div></div>
+            <div class="metric yellow"><div class="label">EtCO₂</div><div class="value" id="etco2Value">36</div></div>
+            <div class="metric yellow"><div class="label">RR</div><div class="value" id="rrValue">14</div></div>
+            <div class="metric red"><div class="label">NIBP</div><div class="value" id="bpValue">126/78</div></div>
+          </aside>
+        </div>
+      </div>
+      <footer class="note">Student mode is display-only. Use instructor mode on a second device to control the patient state.</footer>
+    </div>
+  </div>
+  <script src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

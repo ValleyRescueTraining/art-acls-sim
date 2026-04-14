@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instructor Control</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="instructor">
+  <div class="page-shell">
+    <div class="page-card">
+      <div class="toolbar">
+        <div class="brand-row" style="margin:0">
+          <div class="brand-logo">VRT</div>
+          <div>
+            <strong>Instructor Control</strong>
+            <div class="tiny muted">Session: <span id="sessionLabel"></span></div>
+          </div>
+        </div>
+        <div class="status-pill" id="chargedState">Not charged</div>
+      </div>
+
+      <div id="errorBox" class="panel" style="display:block; margin-bottom:1rem; color:#ffd85a;">If you see a Firebase config error here, paste your config into firebase-config.js.</div>
+
+      <div class="instructor-layout">
+        <section class="panel">
+          <h2>Core control</h2>
+          <div class="controls-grid">
+            <div>
+              <label for="rhythmSelect">Rhythm</label>
+              <select id="rhythmSelect"></select>
+              <div class="button-row">
+                <button id="applyRhythmBtn">Apply Rhythm</button>
+              </div>
+            </div>
+            <div>
+              <label class="status-pill"><input type="checkbox" id="cprToggle" /> CPR</label>
+              <label class="status-pill"><input type="checkbox" id="pacedToggle" /> Pacer</label>
+              <label class="status-pill"><input type="checkbox" id="syncToggle" /> Sync</label>
+            </div>
+          </div>
+
+          <h3>Vitals and physiology</h3>
+          <div class="controls-grid">
+            <div class="slider-wrap"><label>Heart Rate <span id="heartRateOut"></span></label><input id="heartRate" type="range" min="0" max="240" value="78" /></div>
+            <div class="slider-wrap"><label>Pulse Rate <span id="pulseRateOut"></span></label><input id="pulseRate" type="range" min="0" max="240" value="78" /></div>
+            <div class="slider-wrap"><label>Perfusion <span id="perfusionOut"></span></label><input id="perfusion" type="range" min="0" max="100" value="80" /></div>
+            <div class="slider-wrap"><label>SpO₂ <span id="spo2Out"></span></label><input id="spo2" type="range" min="0" max="100" value="98" /></div>
+            <div class="slider-wrap"><label>EtCO₂ <span id="etco2Out"></span></label><input id="etco2" type="range" min="0" max="80" value="36" /></div>
+            <div class="slider-wrap"><label>RR <span id="rrOut"></span></label><input id="rr" type="range" min="0" max="40" value="14" /></div>
+            <div class="slider-wrap"><label>Systolic <span id="systolicOut"></span></label><input id="systolic" type="range" min="0" max="250" value="126" /></div>
+            <div class="slider-wrap"><label>Diastolic <span id="diastolicOut"></span></label><input id="diastolic" type="range" min="0" max="150" value="78" /></div>
+          </div>
+          <div class="button-row"><button id="applyVitalsBtn">Apply Vitals</button><button id="resetBtn" class="secondary">Reset Session</button></div>
+        </section>
+
+        <section class="panel">
+          <h2>Therapy</h2>
+          <div class="controls-grid">
+            <div class="slider-wrap"><label>Energy <span id="energyOut"></span> J</label><input id="energy" type="range" min="50" max="360" step="10" value="200" /></div>
+            <div class="slider-wrap"><label>Pace Rate <span id="paceRateOut"></span> PPM</label><input id="paceRate" type="range" min="40" max="170" value="70" /></div>
+            <div class="slider-wrap"><label>Pace Current <span id="paceCurrentOut"></span> mA</label><input id="paceCurrent" type="range" min="0" max="200" value="40" /></div>
+          </div>
+          <div class="button-row">
+            <button id="chargeBtn">Charge</button>
+            <button id="shockBtn">Shock</button>
+          </div>
+
+          <h2 style="margin-top:1.2rem">Quick presets</h2>
+          <div class="preset-grid">
+            <button class="ghost" data-preset="vf_arrest">VF Arrest</button>
+            <button class="ghost" data-preset="unstable_vt">Unstable VT</button>
+            <button class="ghost" data-preset="symptomatic_brady">Symptomatic Brady</button>
+            <button class="ghost" data-preset="pea_arrest">PEA Arrest</button>
+            <button class="ghost" data-preset="rosc_watch">Post-ROSC</button>
+          </div>
+        </section>
+      </div>
+      <footer class="note">Instructor mode is intentionally simple: choose, apply, and teach. This is the best base for later password protection and paid access.</footer>
+    </div>
+  </div>
+  <script src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
