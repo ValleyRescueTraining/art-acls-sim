@@ -1,12 +1,11 @@
-// Replace the placeholder values below with your Firebase web app config.
-// You will get this from Firebase Console > Project settings > Your apps > SDK setup and configuration.
-
-window.VRT_FIREBASE_CONFIG = {
-  apiKey: "PASTE_YOURS_HERE",
-  authDomain: "PASTE_YOURS_HERE.firebaseapp.com",
-  databaseURL: "https://PASTE_YOURS_HERE-default-rtdb.firebaseio.com",
-  projectId: "PASTE_YOURS_HERE",
-  storageBucket: "PASTE_YOURS_HERE.firebasestorage.app",
-  messagingSenderId: "PASTE_YOURS_HERE",
-  appId: "PASTE_YOURS_HERE"
+const firebaseConfig = {
+  apiKey: "AIzaSyAriwyxYV65QJmYR-vjlzFCtfDhkSzONV8",
+  authDomain: "vrt-acls-sim.firebaseapp.com",
+  databaseURL: "https://vrt-acls-sim-default-rtdb.firebaseio.com",
+  projectId: "vrt-acls-sim",
+  storageBucket: "vrt-acls-sim.firebasestorage.app",
+  messagingSenderId: "13977363558",
+  appId: "1:13977363558:web:fd40981c97688410aa39a7"
 };
+
+window.firebaseConfig = firebaseConfig;
